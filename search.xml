@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Hexo+github搭建博客]]></title>
+    <url>%2F2017%2F07%2F22%2Fstart%2F</url>
+    <content type="text"><![CDATA[使用hexo+github搭建个人博客]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+</search>
