@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Hexo+github搭建博客]]></title>
-    <url>%2F2017%2F07%2F22%2Fstart%2F</url>
-    <content type="text"><![CDATA[使用hexo+github搭建个人博客]]></content>
+    <title><![CDATA[Hexo+github 搭建博客]]></title>
+    <url>%2F2017%2F07%2F22%2F2017-07-23%20hexo%2Bgithub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[现在可以发博客的地方非常多，自己写的一些东西往往会散布在各个地方，这样做一方面不容易集中管理，另一方面可能哪家公司关停了自己的相关业务，自己发的东西也会遗失。所以在github上对自己的文章进行管理就显得相当必要。下面就简要介绍使用hexo和github搭建自己个人博客的流程。 一、博客搭建流程github相关 申请github账号，使用免费账户即可 申请账户时建议username使用自己的全名或者自己喜欢的英文写法. 因为最终博客的地址就是 www.username.github.io 如果之前已经有github账号，可以在setting中的Account中Change username 新建repository repository name 必须填写成自己的 username.github.io, 因为github通过这种格式的命名来确定用户是要建立自己的页面 repository的类型可以选择public, 可以勾选initialize 可以搜索github pages来了解更多，有一种方法就是在这步之后进入到此项目的setting里，找到github pages，通过Choose a theme来设置首页。这种方法是通过Jekyll+github的方式来进行的，也相当方便，感兴趣的可以搜一下 本地安装git 直接使用git bash就行 配置github账户,在gitBash里输入如下语句，其中username填写注册github时的账户，邮箱填写注册时的邮箱12git config --global user.name &quot;username&quot; git config --global user.email &quot;email&quot; 配置SSH 打开gitBash,输入 ssh-keygen -t rsa -C “your e-mail” 生成SSH，这里的your e-mail填写注册github时的邮箱，然后一路按回车即可 打开 ~/.ssh/id_rsa.pub 文件，复制其中的内容。打开github, 点击头像进入setting，在左侧边栏找到SSH相关选项卡，点击Add SSH key, 填写title，这个title自己可以随便起一个名字，然后将复制的内容粘贴到key框中，最后点击add key即可 输入 ssh -T git@github.com，如果终断里显示如下语句则表示配置成功1Hi username! You&apos;ve successfully authenticated, but GitHub does not provide shell access. hexo相关配置 安装hexo 下载Node.js并安装。需要配置好环境变量，安装完成后可以在终端里输入node --version查看是否有效 打开gitBash,输入 npm install -g hexo-cli 完成hexo的安装 在本地新建一个供自己存放项目的文件夹，例如C:\hexo，在gitBash中切换到此文件夹，输入下边两句命令即可安装好本地的hexo 12hexo init npm install 接着输入 hexo server 就会启动本地的博客网站，默认地址是 http://localhost:4000/ 通过4000端口启动的是本地的博客，这个是用来查看自己本地当前的博客是什么样的，供调试使用。如果本地查看完后觉得可以，通过后续的编译上传，可以通过github的链接直接查看，网站上的查看是本地改好上传的。 在浏览器中输入 http://localhost:4000/ 如果打不开，则有很大的原因是4000端口被占用，可以输入hexo s -p 5000，来设置5000端口，或者自定义一个自由端口即可 每次修改完毕之后，可以执行 hexo s --debug, 或者指定端口 hexo s -p 端口号 --debug来进行本地调试 切换主题hexo默认带有一个主题，在其themes文件夹下，如果对当前主题不满意，可以切换自己喜欢的主题。通过搜索“hexo主题”这个关键词可以搜到新的主题。本博客现在使用的主题是NEXT主题，下面简要介绍下下载主题后的配置。 下载NEXT主题，直接搜索下载即可 按照next网站上的配置对主题进行配置 发布博客 修改hexo根目录下的_config.yml文件，找到如下位置填写，其中Mygithub替换成自己的username 123deploy: type: git repo: git@github.com:MyGithub/MyGithub.github.io 博客存放在/source/_posts目录下 使用如下命令进行发布，执行第二条指令时可能会失败，此时要先执行 npm install hexo-deployer-git --save，然后重新执行如下步骤12hexo generatehexo deploy 二、搭建过程中可能遇到的问题 添加tags, categories, about后跳转失败问题原因是博客，tags,about,categories需要单独维护，也可以对其内容进行填充，所以需要单独建立页面，使用命令hexo new page tags就可以新建tags页面，会在source目录下生成一个tags目录，about和categories也类似，about中也可以填充自己要进行介绍的说明 发布的博客没有题目使用markdown发布时，需要在开始增加固定的格式来设置博客的题目，标签，归类等信息,具体格式如下： 12345title: 题目categories: 类别tags: 标签---正文 添加多个标签添加多个标签的格式为：tags: [标签1，标签2] 其他问题主题相关的问题可以通过NEXT网站进行了解，HEXO的问题可以通过博客或者官网进行了解 三、参考链接 Github+Hexo+NEXT主题+域名绑定 博客搭建全记录 NexT官网 傻瓜都可以利用github pages建博客]]></content>
       <categories>
-        <category>博客</category>
+        <category>github</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>hexo</tag>
+        <tag>NexT</tag>
         <tag>github</tag>
       </tags>
   </entry>
